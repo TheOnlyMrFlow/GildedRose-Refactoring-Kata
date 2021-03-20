@@ -1,14 +1,37 @@
 ﻿namespace csharp
 {
-    public class Item
+    public readonly struct Item
     {
-        public string Name { get; set; }
-        public int SellIn { get; set; }
-        public int Quality { get; set; }
+        public Item(string name, int sellIn, int quality)
+        {
+            Name = name;
+            SellIn = sellIn;
+            Quality = quality;
+            agingStrategy = new CommonAgingStrategy();
+        }
+
+        public Item(string name, int sellIn, int quality, AgingStrategy strategy)
+        {
+            Name = name;
+            SellIn = sellIn;
+            Quality = quality;
+            agingStrategy = strategy;
+        }
+
+        public string Name { get; }
+        public int SellIn { get; }
+        public int Quality { get; }
+
+        private AgingStrategy agingStrategy { get; }
 
         public override string ToString()
         {
-            return this.Name + ", " + this.SellIn + ", " + this.Quality;
-        }  
+            return Name + ", " + SellIn + ", " + Quality;
+        }
+
+        public Item AgeByOneDay()
+        {
+            return agingStrategy.AgeByOneDay(this);
+        }
     }
 }

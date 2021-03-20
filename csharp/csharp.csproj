@@ -61,6 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConcertTicketAgingStrategy.cs" />
+    <Compile Include="UnperishableAgingStrategy.cs" />
+    <Compile Include="AgingStrategy.cs" />
+    <Compile Include="EarnValueAlongTimeAgingStrategy.cs" />
+    <Compile Include="CommonAgingStrategy.cs" />
     <Compile Include="ApprovalTest.cs" />
     <Compile Include="GildedRose.cs" />
     <Compile Include="GildedRoseTest.cs" />
